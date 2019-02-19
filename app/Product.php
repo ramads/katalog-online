@@ -9,7 +9,7 @@ class Product extends Model
     protected $fillable = ['name', 'price', 'image', 'status', 'supplier_id'];
 
     public function supplier() {
-        return $this->hasOne(Supplier::class);
+        return $this->belongsTo(Supplier::class);
     }
 
     public static function insertRules() {

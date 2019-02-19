@@ -30,11 +30,16 @@ $factory->define(App\Supplier::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
+    $filepath = 'public/products_images';
+    if(!File::exists($filepath)){
+        File::makeDirectory($filepath);
+    }
+
     return [
         'name' => $faker->word,
-        'price' => $faker->numberBetween(10000, 10000),
+        'price' => $faker->numberBetween(10000, 100000),
         'status' => $faker->boolean(70),
-        'image' => $faker->imageUrl(640, 480, 'fashion'),
+        'image' => $faker->image($filepath, 400,300, 'fashion', false),
         'supplier_id' => factory(App\Supplier::class)->create()->id,
     ];
 });
