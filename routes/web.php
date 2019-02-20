@@ -16,3 +16,5 @@ Route::get('/', 'KatalogController@index')->name('katalog');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/products', 'ProductController', ['except' => 'show']);
+Route::resource('/suppliers', 'SupplierController', ['except' => 'show']);

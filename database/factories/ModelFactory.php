@@ -15,16 +15,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\City::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->city,
-    ];
+    return ['name' => $faker->city];
 });
 
 $factory->define(App\Supplier::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,
-        'age' => $faker->numberBetween(20, 50),
+        'birth_year' => $faker->numberBetween(1930, date('Y')),
         'city_id' => factory(App\City::class)->create()->id,
     ];
 });

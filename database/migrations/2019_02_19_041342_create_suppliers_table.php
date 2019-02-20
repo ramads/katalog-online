@@ -17,7 +17,7 @@ class CreateSuppliersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('age');
+            $table->integer('birth_year');
             $table->integer('city_id');
             $table->timestamps();
         });

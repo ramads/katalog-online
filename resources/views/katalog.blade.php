@@ -5,7 +5,7 @@
     <div class="row">
         @foreach ($products as $product)
             @component('components.product', [
-                'image' => asset('products_images/' . $product->image),
+                'image' => $product->getImageURL(),
                 'title' => $product->name,
                 'price' => number_format($product->price),
                 'supplierName' => $product->supplier->name,

@@ -63,6 +63,11 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        'products_images' => [
+            'driver' => 'local',
+            'root' => public_path() . '/products_images'
+        ]
+
     ],
 
 ];

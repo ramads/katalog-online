@@ -7,8 +7,7 @@ use App\Product;
 
 class KatalogController extends Controller {
     public function index() {
-        $products = Product::paginate(6);;
-        // dd($products);
+        $products = Product::where('status', 1)->paginate(6);;
         return view('katalog', ['products' => $products]);
     }
 }
